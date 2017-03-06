@@ -1,0 +1,22 @@
+{
+  "name": "lyft-cli",
+  "version": "0.0.1",
+  "description": "This is a Lyft Command Line Interface",
+  "main": "./build/executables/lyft.js",
+  "scripts": {
+    "test": "npm run build && mocha --compilers js:babel-core/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/djchie/lyft-cli.git"
+  },
+  "keywords": [
+    "lyft"
+  ],
+  "author": "Derrick Chie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/djchie/lyft-cli/issues"
+  },
+  "preferGlobal": true
+}
