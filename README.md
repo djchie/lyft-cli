@@ -17,4 +17,4 @@ npm install lyft-cli -g
 [MIT](LICENSE.md)
 
 ## Credits
-This project is heavily inspired by [Jae Bradley's](https://github.com/jaebradley) [uber-cli](https://github.com/jaebradley/uber-cli)
+This project is heavily inspired by [Jae Bradley](https://github.com/jaebradley)'s [uber-cli](https://github.com/jaebradley/uber-cli)
