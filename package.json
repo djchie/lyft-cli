@@ -1,6 +1,6 @@
 {
   "name": "lyft-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This is a Lyft Command Line Interface",
   "main": "./build/executables/lyft.js",
   "scripts": {
@@ -44,7 +44,7 @@
     "enumify": "^1.0.4",
     "immutable": "^3.8.1",
     "node-emoji": "^1.4.3",
-    "lyft-node": "^0.0.2"
+    "lyft-node": "^0.0.3"
   },
   "preferGlobal": true,
   "devDependencies": {
