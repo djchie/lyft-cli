@@ -9,5 +9,5 @@ let defaults = {
   rideTypes: List()
 };
 
-export default class RideTypesResponse extends Record(defaults) {
+export default class RideTypes extends Record(defaults) {
 }

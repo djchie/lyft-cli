@@ -1,16 +1,15 @@
 'use es6'
 
 import emoji from 'node-emoji';
-import {List,Map} from 'immutable';
+import {
+  List,Map} from 'immutable';
 import Table from 'cli-table2';
 
-import Utilities from '../../../Utilities';
-
 export default class RideTypesTableBuilder {
-  static build(rideTypesResponse) {
-    let table = RideTypesTableBuilder.buildInitialTable(rideTypesResponse.location.name);
+  static build(rideTypes) {
+    const table = RideTypesTableBuilder.buildInitialTable(rideTypes.location.name);
 
-    rideTypesResponse.rideTypes.forEach((rideType) => {
+    rideTypes.rideTypes.forEach((rideType) => {
       table.push(RideTypesTableBuilder.buildRideTypeRow(rideType));
     });
 
@@ -25,21 +24,22 @@ export default class RideTypesTableBuilder {
   }
 
   static buildInitialTable(locationName) {
-    let table = new Table();
+    const table = new Table();
     table.push([{
       colSpan: 2,
       content: `${emoji.get('round_pushpin')} ${locationName}`,
       hAlign: 'center'
     }]);
-    let formattedHeaders = List(RideTypesTableBuilder.getTableHeaders()
+    const formattedHeaders = List(RideTypesTableBuilder.getTableHeaders()
                               .map(header => Map({ content: header, hAlign: 'center' })));
     table.push(formattedHeaders.toJS());
     return table;
   }
 
   static buildRideTypeRow(rideType) {
+    console.log(rideType);
     return [
-      rideType.display_name,
+      rideType.rideType,
       rideType.seats,
     ];
   }

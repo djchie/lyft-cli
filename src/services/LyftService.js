@@ -7,7 +7,11 @@ import Lyft from 'lyft-node';
 
 import GeocodeService from './GeocodeService';
 
-import RideTypesResponse from '../data/RideTypesResponse';
+import RideTypes from '../data/RideTypes';
+import RideTypesTranslator from './translators/RideTypesTranslator';
+
+import NearbyDrivers from '../data/NearbyDrivers';
+import NearbyDriversTranslator from './translators/NearbyDriversTranslator';
 
 import PriceEstimates from '../data/PriceEstimates';
 import PriceEstimatesTranslator from './translators/PriceEstimatesTranslator';
@@ -38,9 +42,9 @@ export default class LyftService {
 
         return this.lyftApi.getRideTypes(query)
           .then((response) => {
-            return new RideTypesResponse({
+            return new RideTypes({
               location: location,
-              rideTypes: response.ride_types,
+              rideTypes: RideTypesTranslator.translate(response),
             });
           });
       });
@@ -152,7 +156,10 @@ export default class LyftService {
 
         return this.lyftApi.getNearbyDrivers(query)
           .then((response) => {
-            return response;
+            return new NearbyDrivers({
+              location: location,
+              nearbyDrivers: NearbyDriversTranslator.translate(response, location),
+            });
           });
       });
   }
