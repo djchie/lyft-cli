@@ -2,10 +2,13 @@
 
 import program from 'commander';
 
+import LyftService from './LyftService';
+
 // import DistanceUnit from '../data/DistanceUnit';
 import RideEstimateQuery from '../data/RideEstimateQuery';
 
-import LyftService from './LyftService';
+import RideTypesTableBuilder from './tables/builders/RideTypesTableBuilder';
+
 
 import PriceEstimatesTableBuilder from './tables/builders/PriceEstimatesTableBuilder';
 import TimeEstimatesTableBuilder from './tables/builders/TimeEstimatesTableBuilder';
@@ -21,9 +24,8 @@ export default class CommandExecutionService {
     }
 
     return this.lyftService.getRideTypes(address)
-      .then((rideTypes) => {
-        console.log(rideTypes);
-        // return RideTypesTableBuilder.build(rideTypes);
+      .then((rideTypesResponse) => {
+        return RideTypesTableBuilder.build(rideTypesResponse);
       });
   }
 
@@ -33,8 +35,8 @@ export default class CommandExecutionService {
     }
 
     return this.lyftService.getDriverEta(address)
-      .then((driverEta) => {
-        console.log(driverEta);
+      .then((driverEtaResponse) => {
+        console.log(driverEtaResponse);
         // return TimeEstimatesTableBuilder.build(estimates);
       });
   }
@@ -51,8 +53,8 @@ export default class CommandExecutionService {
     const addresses = RideEstimateQuery.from(startAddress, endAddress);
     
     return this.lyftService.getRideEstimates(addresses)
-      .then((rideEstimates) => {
-        console.log(rideEstimates);
+      .then((rideEstimatesResponse) => {
+        console.log(rideEstimatesResponse);
         // return PriceEstimatesTableBuilder.build(rideEstimates)
       });
   }
@@ -63,8 +65,8 @@ export default class CommandExecutionService {
     }
 
     return this.lyftService.getNearbyDrivers(address)
-      .then((nearbyDrivers) => {
-        console.log(nearbyDrivers);
+      .then((nearbyDriversResponse) => {
+        console.log(nearbyDriversResponse);
         // return NearbyDriversTableBuilder.build(nearbyDrivers);
       });
   }

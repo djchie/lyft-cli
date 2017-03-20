@@ -6,6 +6,9 @@ import {
 import Lyft from 'lyft-node';
 
 import GeocodeService from './GeocodeService';
+
+import RideTypesResponse from '../data/RideTypesResponse';
+
 import PriceEstimates from '../data/PriceEstimates';
 import PriceEstimatesTranslator from './translators/PriceEstimatesTranslator';
 import TimeEstimates from '../data/TimeEstimates';
@@ -35,7 +38,10 @@ export default class LyftService {
 
         return this.lyftApi.getRideTypes(query)
           .then((response) => {
-            return response;
+            return new RideTypesResponse({
+              location: location,
+              rideTypes: response.ride_types,
+            });
           });
       });
   }

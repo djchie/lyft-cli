@@ -2,8 +2,8 @@
 
 import convert from 'convert-units';
 
-import Duration from '../data/Duration';
-import TimeUnit from '../data/TimeUnit';
+import Duration from '../../data/Duration';
+import TimeUnit from '../../data/TimeUnit';
 
 export default class DurationConverter {
   static convert(duration, toUnit) {

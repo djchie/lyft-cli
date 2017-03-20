@@ -28,7 +28,7 @@ export default class GeocodeService {
 
   getLocations(address) {
     return this.getData(address)
-      .then((response) => (
+      .then((response) => {
         return GeocodeTranslator.translate(response);
       });
   }

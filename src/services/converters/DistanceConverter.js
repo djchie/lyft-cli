@@ -2,8 +2,8 @@
 
 import convert from 'convert-units';
 
-import Distance from '../data/Distance';
-import DistanceUnit from '../data/DistanceUnit';
+import Distance from '../../data/Distance';
+import DistanceUnit from '../../data/DistanceUnit';
 
 export default class DistanceConverter {
   static convert(distance, toUnit) {
