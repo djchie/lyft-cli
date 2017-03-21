@@ -2,19 +2,20 @@
 
 import emoji from 'node-emoji';
 import {
-  List,Map} from 'immutable';
+  List,Map
+} from 'immutable';
 import Table from 'cli-table2';
 
 import DistanceCalculator from '../../calculators/DistanceCalculator';
 
+import NearbyDriverFormatter from '../formatters/NearbyDriverFormatter';
+
 export default class NearbyDriversTableBuilder {
-  static build(nearbyDriversResponse) {
-    let table = NearbyDriversTableBuilder.buildInitialTable(nearbyDriversResponse.location.name);
+  static build(nearbyDrivers) {
+    let table = NearbyDriversTableBuilder.buildInitialTable(nearbyDrivers.location.name);
 
-    console.log(nearbyDriversResponse.nearbyDrivers);
-
-    nearbyDriversResponse.nearbyDrivers.forEach((NearbyDriver) => {
-      table.push(NearbyDriversTableBuilder.buildNearbyDriverRow(NearbyDriver, nearbyDriversResponse.location.coordinate));
+    nearbyDrivers.nearbyDrivers.forEach((nearbyDriver) => {
+      table.push(NearbyDriversTableBuilder.buildNearbyDriverRow(nearbyDriver));
     });
 
     return table.toString();
@@ -40,37 +41,10 @@ export default class NearbyDriversTableBuilder {
     return table;
   }
 
-  static buildNearbyDriverRow(nearbyDriver, coordinate) {
-
-    // Need to find the nearest driver from nearbyDriver.drivers
-
-    let closestDistance = Infinity;
-
-    console.log(coordinate);
-    console.log(nearbyDriver.ride_type);
-
-    nearbyDriver.drivers.forEach((driverLocations) => {
-      driverLocations.locations.forEach((location) => {
-        console.log(location);
-        const distance = DistanceCalculator.calculateDistance(coordinate, {
-          latitude: location.lat,
-          longitude: location.lng,
-        });
-
-        if (distance < closestDistance) {
-          closestDistance = distance;
-        }
-
-        console.log(closestDistance);
-      });
-
-    });
-
-    console.log(closestDistance);
-
+  static buildNearbyDriverRow(nearbyDriver) {
     return [
-      nearbyDriver.ride_type,
-      new Distance(),
+      NearbyDriverFormatter.formatRideType(nearbyDriver.rideType),
+      NearbyDriverFormatter.formatDistance(nearbyDriver.distance),
     ];
   }
 }

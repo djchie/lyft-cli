@@ -3,7 +3,7 @@
 import {Record} from 'immutable';
 
 let defaults = {
-  rideType: '',
+  displayName: '',
   seats: 0,
 };
 

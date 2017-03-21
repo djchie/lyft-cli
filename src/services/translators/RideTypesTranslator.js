@@ -23,22 +23,19 @@ export default class RideTypesTranslator {
   }
 
   static translateRideType(rideType) {
-    // if (!('ride_type' in rideType)) {
-    //   throw new ReferenceError('expected ride_type field');
-    // }
-
-    if (!('ride_type' in rideType)) {
-      throw new ReferenceError('expected ride_type field');
+    
+    if (!('display_name' in rideType)) {
+      throw new ReferenceError('expected display_name field');
     }
 
     if (!('seats' in rideType)) {
       throw new ReferenceError('expected seats field');
     }
 
-    const type = rideType.ride_type;
+    const displayName = rideType.display_name;
 
-    if (typeof type !== 'string') {
-      throw new TypeError('expected ride_type to be a string');
+    if (typeof displayName !== 'string') {
+      throw new TypeError('expected display_name to be a string');
     }
 
     const seats = rideType.seats;
@@ -48,7 +45,7 @@ export default class RideTypesTranslator {
     }
 
     return new RideType({
-      rideType: type,
+      displayName: displayName,
       seats: seats,
     });
   }

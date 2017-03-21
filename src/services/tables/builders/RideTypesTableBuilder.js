@@ -39,7 +39,7 @@ export default class RideTypesTableBuilder {
   static buildRideTypeRow(rideType) {
     console.log(rideType);
     return [
-      rideType.rideType,
+      rideType.displayName,
       rideType.seats,
     ];
   }

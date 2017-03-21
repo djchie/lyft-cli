@@ -48,7 +48,7 @@ export default class NearbyDriversTranslator {
 
     let closestDistance = new Distance({
       value: Infinity,
-      unit: DistanceUnit.KILOMETER,
+      unit: DistanceUnit.MILE,
     });
 
     drivers.forEach((driver) => {
@@ -72,15 +72,10 @@ export default class NearbyDriversTranslator {
           throw new ReferenceError('expected lng field');
         }
 
-        // console.log(location);
-        // console.log(coordinate);
-
         const distance = DistanceCalculator.calculateDistance(coordinate, {
           latitude: location.lat,
           longitude: location.lng,
         });
-
-        console.log(distance);
 
         if (distance.value < closestDistance.value) {
           closestDistance = distance;
@@ -88,8 +83,6 @@ export default class NearbyDriversTranslator {
       });
 
     });
-
-    console.log(closestDistance);
 
     return new NearbyDriver({
       rideType: rideType,
