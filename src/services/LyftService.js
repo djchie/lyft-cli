@@ -13,6 +13,9 @@ import RideTypesTranslator from './translators/RideTypesTranslator';
 import NearbyDrivers from '../data/NearbyDrivers';
 import NearbyDriversTranslator from './translators/NearbyDriversTranslator';
 
+import DriverEtas from '../data/DriverEtas';
+import DriverEtasTranslator from './translators/DriverEtasTranslator';
+
 import PriceEstimates from '../data/PriceEstimates';
 import PriceEstimatesTranslator from './translators/PriceEstimatesTranslator';
 import TimeEstimates from '../data/TimeEstimates';
@@ -50,7 +53,7 @@ export default class LyftService {
       });
   }
 
-  getDriverEta(address) {
+  getDriverEtas(address) {
     return this.geocodeService.getLocations(address)
       .then((locations) => {
         return LyftService.getFirstLocation(locations)
@@ -65,12 +68,11 @@ export default class LyftService {
 
         return this.lyftApi.getDriverEta(query)
           .then((response) => {
-            return response;
+            return new DriverEtas({
+              location: location,
+              driverEtas: DriverEtasTranslator.translate(response),
+            });
           });
-          // .then(estimates => new TimeEstimates({
-          //   location: location,
-          //   estimates: TimeEstimatesTranslator.translate(estimates)
-          // }));
       });
   }
 

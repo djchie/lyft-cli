@@ -37,7 +37,6 @@ export default class RideTypesTableBuilder {
   }
 
   static buildRideTypeRow(rideType) {
-    console.log(rideType);
     return [
       rideType.displayName,
       rideType.seats,

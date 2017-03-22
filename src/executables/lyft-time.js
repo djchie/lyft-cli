@@ -10,9 +10,10 @@ program
   .arguments('<address>')
   .action((address) => {
     try {
-        service.executeDriverEta(address)
+        service.executeDriverEtas(address)
           .then(table => console.log(table));
     } catch (error) {
+      console.log(error);
       console.error('Could not get estimated arrival times');
     }
   })

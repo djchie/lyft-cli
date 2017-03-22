@@ -9,6 +9,7 @@ import RideEstimateQuery from '../data/RideEstimateQuery';
 
 import RideTypesTableBuilder from './tables/builders/RideTypesTableBuilder';
 import NearbyDriversTableBuilder from './tables/builders/NearbyDriversTableBuilder';
+import DriverEtasTableBuilder from './tables/builders/DriverEtasTableBuilder';
 
 
 import PriceEstimatesTableBuilder from './tables/builders/PriceEstimatesTableBuilder';
@@ -30,15 +31,14 @@ export default class CommandExecutionService {
       });
   }
 
-  executeDriverEta(address) {
+  executeDriverEtas(address) {
     if (typeof address !== 'string') {
       throw new TypeError('address should be a string');
     }
 
-    return this.lyftService.getDriverEta(address)
-      .then((driverEta) => {
-        console.log(driverEta);
-        // return TimeEstimatesTableBuilder.build(estimates);
+    return this.lyftService.getDriverEtas(address)
+      .then((driverEtas) => {
+        return DriverEtasTableBuilder.build(driverEtas);
       });
   }
 

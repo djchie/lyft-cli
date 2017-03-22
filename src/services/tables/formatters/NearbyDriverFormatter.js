@@ -1,12 +1,8 @@
 'use es6';
 
-import CurrencySymbol from 'currency-symbol-map';
-
 import DistanceUnit from '../../../data/DistanceUnit';
 import DistanceConverter from '../../converters/DistanceConverter';
 import DurationConverter from '../../converters/DurationConverter';
-import TimeUnit from '../../../data/TimeUnit';
-import Utilities from '../../../Utilities';
 
 export default class NearbyDriverFormatter {
 
