@@ -14,8 +14,14 @@ export default class DriverEtasTableBuilder {
   static build(driverEtas) {
     let table = DriverEtasTableBuilder.buildInitialTable(driverEtas.location.name);
 
-    driverEtas.driverEtas.forEach((driverEta) => {
-      table.push(DriverEtasTableBuilder.buildDriverEtaRow(driverEta));
+    let driverEtaRows = driverEtas.driverEtas.map((driverEta) => {
+      return DriverEtasTableBuilder.buildDriverEtaRow(driverEta);
+    });
+
+    driverEtaRows = driverEtaRows.sort(DriverEtasTableBuilder.sortByDisplayName);
+
+    driverEtaRows.forEach((driverEtaRow) => {
+      table.push(driverEtaRow);
     });
 
     return table.toString();
@@ -46,5 +52,19 @@ export default class DriverEtasTableBuilder {
       driverEta.displayName,
       DriverEtaFormatter.formatDuration(driverEta.etaSeconds),
     ];
+  }
+
+  static sortByDisplayName(driverEta1, driverEta2) {
+    const displayName1 = driverEta1[0].toLowerCase();
+    const displayName2 = driverEta2[0].toLowerCase();
+
+    if (displayName1 < displayName2) {
+      return -1;
+    }
+    if (displayName1 > displayName2) {
+      return 1;
+    }
+
+    return 0;
   }
 }

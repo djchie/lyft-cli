@@ -14,8 +14,14 @@ export default class NearbyDriversTableBuilder {
   static build(nearbyDrivers) {
     let table = NearbyDriversTableBuilder.buildInitialTable(nearbyDrivers.location.name);
 
-    nearbyDrivers.nearbyDrivers.forEach((nearbyDriver) => {
-      table.push(NearbyDriversTableBuilder.buildNearbyDriverRow(nearbyDriver));
+    let nearbyDriverRows = nearbyDrivers.nearbyDrivers.map((nearbyDriver) => {
+      return NearbyDriversTableBuilder.buildNearbyDriverRow(nearbyDriver);
+    });
+
+    nearbyDriverRows = nearbyDriverRows.sort(NearbyDriversTableBuilder.sortByRideType);
+
+    nearbyDriverRows.forEach((nearbyDriverRow) => {
+      table.push(nearbyDriverRow);
     });
 
     return table.toString();
@@ -46,5 +52,19 @@ export default class NearbyDriversTableBuilder {
       NearbyDriverFormatter.formatRideType(nearbyDriver.rideType),
       NearbyDriverFormatter.formatDistance(nearbyDriver.distance),
     ];
+  }
+
+  static sortByRideType(nearbyDriver1, nearbyDriver2) {
+    const displayName1 = nearbyDriver1[0].toLowerCase();
+    const displayName2 = nearbyDriver2[0].toLowerCase();
+
+    if (displayName1 < displayName2) {
+      return -1;
+    }
+    if (displayName1 > displayName2) {
+      return 1;
+    }
+
+    return 0;
   }
 }

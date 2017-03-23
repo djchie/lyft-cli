@@ -9,8 +9,14 @@ export default class RideTypesTableBuilder {
   static build(rideTypes) {
     const table = RideTypesTableBuilder.buildInitialTable(rideTypes.location.name);
 
-    rideTypes.rideTypes.forEach((rideType) => {
-      table.push(RideTypesTableBuilder.buildRideTypeRow(rideType));
+    let rideTypeRows = rideTypes.rideTypes.map((rideType) => {
+      return RideTypesTableBuilder.buildRideTypeRow(rideType);
+    });
+
+    rideTypeRows = rideTypeRows.sort(RideTypesTableBuilder.sortByDisplayName);
+
+    rideTypeRows.forEach((rideTypeRow) => {
+      table.push(rideTypeRow);
     });
 
     return table.toString();
@@ -41,5 +47,19 @@ export default class RideTypesTableBuilder {
       rideType.displayName,
       rideType.seats,
     ];
+  }
+
+  static sortByDisplayName(rideType1, rideType2) {
+    const displayName1 = rideType1[0].toLowerCase();
+    const displayName2 = rideType2[0].toLowerCase();
+
+    if (displayName1 < displayName2) {
+      return -1;
+    }
+    if (displayName1 > displayName2) {
+      return 1;
+    }
+
+    return 0;
   }
 }

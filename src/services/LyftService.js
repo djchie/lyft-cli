@@ -19,11 +19,6 @@ import DriverEtasTranslator from './translators/DriverEtasTranslator';
 import RideEstimates from '../data/RideEstimates';
 import RideEstimatesTranslator from './translators/RideEstimatesTranslator';
 
-import PriceEstimates from '../data/PriceEstimates';
-import PriceEstimatesTranslator from './translators/PriceEstimatesTranslator';
-import TimeEstimates from '../data/TimeEstimates';
-import TimeEstimatesTranslator from './translators/TimeEstimatesTranslator';
-
 export default class LyftService {
   constructor() {
     this.lyftApi = new Lyft(

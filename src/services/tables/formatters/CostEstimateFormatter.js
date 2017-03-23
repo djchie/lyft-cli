@@ -24,7 +24,6 @@ export default class CostEstimateFormatter {
     // TODO @jbradley Utilities currently formats time in seconds - build better formatting logic
     // const durationInSeconds = DurationConverter.convert(duration, TimeUnit.SECOND);
     // return Utilities.generateFormattedTime(durationInSeconds.length);
-    console.log(duration);
     return Utilities.generateFormattedTime(duration.length);
   }
 

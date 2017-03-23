@@ -14,8 +14,14 @@ export default class RideEstimatesTableBuilder {
   static build(rideEstimates) {
     let table = RideEstimatesTableBuilder.buildInitialTable();
 
-    rideEstimates.costEstimates.forEach(costEstimate => {
-      table.push(RideEstimatesTableBuilder.buildCostEstimateRow(costEstimate));
+    let costEstimateRows = rideEstimates.costEstimates.map(costEstimate => {
+      return RideEstimatesTableBuilder.buildCostEstimateRow(costEstimate);
+    });
+
+    costEstimateRows = costEstimateRows.sort(RideEstimatesTableBuilder.sortByDisplayName);
+
+    costEstimateRows.forEach((costEstimateRow) => {
+      table.push(costEstimateRow);
     });
 
     table.push(RideEstimatesTableBuilder.buildLocationRow(rideEstimates.start.name, false));
@@ -26,7 +32,7 @@ export default class RideEstimatesTableBuilder {
 
   static getTableHeaders() {
     return List.of(
-      emoji.get('oncoming_automobile'),
+      emoji.get('red_car'),
       emoji.get('money_with_wings'),
       emoji.get('arrows_clockwise'),
       emoji.get('hourglass_flowing_sand'),
@@ -43,12 +49,6 @@ export default class RideEstimatesTableBuilder {
   }
 
   static buildCostEstimateRow(costEstimate) {
-    console.log(costEstimate);
-
-    console.log(CostEstimateFormatter.formatRange(costEstimate.priceRange));
-    console.log(CostEstimateFormatter.formatDistance(costEstimate.estimatedDistance));
-    console.log(CostEstimateFormatter.formatDuration(costEstimate.estimatedDuration));
-
     return [
       costEstimate.displayName,
       CostEstimateFormatter.formatRange(costEstimate.priceRange),
@@ -59,7 +59,6 @@ export default class RideEstimatesTableBuilder {
   }
 
   static buildPrimetimePercentageSymbol(primetimePercentage) {
-    // TODO: Show different emojis based off of different percentages
     let primetime = `${primetimePercentage}%`;
 
     if (primetimePercentage === 0) {
@@ -92,5 +91,19 @@ export default class RideEstimatesTableBuilder {
         content: name
       },
     ]
+  }
+
+  static sortByDisplayName(costEstimate1, costEstimate2) {
+    const displayName1 = costEstimate1[0].toLowerCase();
+    const displayName2 = costEstimate2[0].toLowerCase();
+
+    if (displayName1 < displayName2) {
+      return -1;
+    }
+    if (displayName1 > displayName2) {
+      return 1;
+    }
+
+    return 0;
   }
 }

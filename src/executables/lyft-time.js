@@ -13,7 +13,6 @@ program
         service.executeDriverEtas(address)
           .then(table => console.log(table));
     } catch (error) {
-      console.log(error);
       console.error('Could not get estimated arrival times');
     }
   })

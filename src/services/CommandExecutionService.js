@@ -12,10 +12,6 @@ import NearbyDriversTableBuilder from './tables/builders/NearbyDriversTableBuild
 import DriverEtasTableBuilder from './tables/builders/DriverEtasTableBuilder';
 import RideEstimatesTableBuilder from './tables/builders/RideEstimatesTableBuilder';
 
-
-import PriceEstimatesTableBuilder from './tables/builders/PriceEstimatesTableBuilder';
-import TimeEstimatesTableBuilder from './tables/builders/TimeEstimatesTableBuilder';
-
 export default class CommandExecutionService {
   constructor() {
     this.lyftService = new LyftService();
