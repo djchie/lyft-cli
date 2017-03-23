@@ -12,7 +12,7 @@ let defaults = {
   priceRange: new PriceRange(),
   estimatedDuration: new Duration(),
   isValidEstimate: false,
-  primetimePercentage: '0%',
+  primetimePercentage: 0,
 };
 
 export default class CostEstimate extends Record(defaults) {

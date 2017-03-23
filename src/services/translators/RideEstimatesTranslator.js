@@ -27,7 +27,6 @@ export default class RideEstimatesTranslator {
   }
 
   static translateCostEstimate(costEstimate) {
-    console.log(costEstimate);
 
     if (!('estimated_duration_seconds' in costEstimate)) {
       throw new ReferenceError('expected estimated_duration_seconds field');
@@ -74,8 +73,6 @@ export default class RideEstimatesTranslator {
       throw new TypeError('expected estimated_distance_miles to be an integer');
     }
 
-    console.log(estimatedDistanceMiles);
-
     const estimatedCostCentsMax = costEstimate.estimated_cost_cents_max;
 
     if (!Number.isInteger(estimatedCostCentsMax)) {
@@ -120,10 +117,10 @@ export default class RideEstimatesTranslator {
       }),
       estimatedDistance: new Distance({
         value: estimatedDistanceMiles,
-        unit: DistanceUnit.MILES,
+        unit: DistanceUnit.MILE,
       }),
       isValidEstimate: isValidEstimate,
-      primetimePercentage: primetimePercentage,
+      primetimePercentage: parseInt(primetimePercentage),
       priceRange: new PriceRange({
         min: estimatedCostCentsMin,
         max: estimatedCostCentsMax,

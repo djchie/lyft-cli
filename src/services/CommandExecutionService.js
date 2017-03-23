@@ -10,6 +10,7 @@ import RideEstimateQuery from '../data/RideEstimateQuery';
 import RideTypesTableBuilder from './tables/builders/RideTypesTableBuilder';
 import NearbyDriversTableBuilder from './tables/builders/NearbyDriversTableBuilder';
 import DriverEtasTableBuilder from './tables/builders/DriverEtasTableBuilder';
+import RideEstimatesTableBuilder from './tables/builders/RideEstimatesTableBuilder';
 
 
 import PriceEstimatesTableBuilder from './tables/builders/PriceEstimatesTableBuilder';
@@ -55,8 +56,7 @@ export default class CommandExecutionService {
     
     return this.lyftService.getRideEstimates(addresses)
       .then((rideEstimates) => {
-        console.log(rideEstimates);
-        // return PriceEstimatesTableBuilder.build(rideEstimates)
+        return RideEstimatesTableBuilder.build(rideEstimates);
       });
   }
 
