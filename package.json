@@ -4,6 +4,11 @@
   "description": "This is a Lyft Command Line Interface",
   "main": "./build/executables/lyft.js",
   "scripts": {
+    "build": "babel src --presets babel-preset-es2015 --out-dir build",
+    "compile": "babel --presets es2015,stage-0 -d build/ src/",
+    "coverage": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/.bin/_mocha -- --compilers js:babel-register ",
+    "coveralls": "npm run compile && npm run-script coverage && node_modules/.bin/coveralls < coverage/lcov.info",
+    "prepublish": "npm run compile",
     "test": "npm run build && mocha --compilers js:babel-core/register"
   },
   "bin": {
@@ -12,14 +17,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/djchie/lyft-cli.git"
-  },
-  "scripts": {
-    "build": "babel src --presets babel-preset-es2015 --out-dir build",
-    "compile": "babel --presets es2015,stage-0 -d build/ src/",
-    "coverage": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/.bin/_mocha -- --compilers js:babel-register ",
-    "coveralls": "npm run compile && npm run-script coverage && node_modules/.bin/coveralls < coverage/lcov.info",
-    "prepublish": "npm run compile",
-    "test": "npm run build && mocha --compilers js:babel-core/register"
   },
   "keywords": [
     "lyft"
@@ -41,10 +38,11 @@
     "commander": "^2.9.0",
     "convert-units": "^2.0.1",
     "currency-symbol-map": "^3.1.0",
+    "current-location": "^1.1.0",
     "enumify": "^1.0.4",
     "immutable": "^3.8.1",
-    "node-emoji": "^1.4.3",
-    "lyft-node": "^0.0.5"
+    "lyft-node": "^0.0.5",
+    "node-emoji": "^1.4.3"
   },
   "preferGlobal": true,
   "devDependencies": {
