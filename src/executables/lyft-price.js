@@ -11,10 +11,10 @@ program
   .option('-e, --end <end>', 'specify end address')
   .parse(process.argv);
 
-if (program.start === undefined) {
-  console.error('Please provide a start address!');
-  process.exit(1);
-}
+// if (program.start === undefined) {
+//   console.error('Please provide a start address!');
+//   process.exit(1);
+// }
 
 if (program.end === undefined) {
   console.error('Please provide a destination address!');

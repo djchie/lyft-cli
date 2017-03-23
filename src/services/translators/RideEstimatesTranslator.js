@@ -70,7 +70,7 @@ export default class RideEstimatesTranslator {
     const estimatedDistanceMiles = costEstimate.estimated_distance_miles;
 
     if (typeof(estimatedDistanceMiles) !== 'number') {
-      throw new TypeError('expected estimated_distance_miles to be an integer');
+      throw new TypeError('expected estimated_distance_miles to be a number');
     }
 
     const estimatedCostCentsMax = costEstimate.estimated_cost_cents_max;

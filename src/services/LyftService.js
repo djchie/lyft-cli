@@ -19,12 +19,6 @@ import DriverEtasTranslator from './translators/DriverEtasTranslator';
 import RideEstimates from '../data/RideEstimates';
 import RideEstimatesTranslator from './translators/RideEstimatesTranslator';
 
-// import CurrentLocation from 'current-location';
-
-// CurrentLocation((error, coordinte) => {
-//   console.log(coordinte);
-// });
-
 export default class LyftService {
   constructor() {
     this.lyftApi = new Lyft(
@@ -158,12 +152,4 @@ export default class LyftService {
         throw error;
       });
   }
-
-  // static getFirstLocation(locations) {
-  //   if (locations.isEmpty()) {
-  //     throw new RangeError('no locations for address');
-  //   }
-
-  //   return locations.first();
-  // }
 }

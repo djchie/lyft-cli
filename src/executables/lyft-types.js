@@ -15,10 +15,10 @@ program
   })
   .parse(process.argv);
 
-if (addressArg === undefined) {
-  console.error('Please provide an address!');
-  process.exit(1);
-}
+// if (addressArg === undefined) {
+//   console.error('Please provide an address!');
+//   process.exit(1);
+// }
 
 try {
   service.executeRideTypes(addressArg)
