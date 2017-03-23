@@ -45,8 +45,15 @@ export default class RideTypesTableBuilder {
   static buildRideTypeRow(rideType) {
     return [
       rideType.displayName,
-      rideType.seats,
+      RideTypesTableBuilder.buildSeats(rideType.seats).toJS(),
     ];
+  }
+
+  static buildSeats(seats) {
+    return Map({
+      content: seats,
+      hAlign: 'center',
+    });
   }
 
   static sortByDisplayName(rideType1, rideType2) {

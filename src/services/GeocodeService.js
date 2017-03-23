@@ -32,7 +32,6 @@ export default class GeocodeService {
         latlng: [coordinate.latitude, coordinate.longitude],
       }, (error, data) => {
         if (error !== null) {
-          console.log(error);
           return reject(error);
         }
 
@@ -61,15 +60,16 @@ export default class GeocodeService {
         .then((response) => {
           return CurrentLocationTranslator.translate(response);
         })
-        .then((coordinate) => {
-          return this.getReverseGeocodeAddressData(coordinate)
-        })
-        .then((response) => {
-          return GeocodeTranslator.translate(response);
-        })
-        .then((locations) => {
-          return GeocodeService.getFirstLocation(locations);
-        })
+        // Uncomment below for showing current location address
+        // .then((coordinate) => {
+        //   return this.getReverseGeocodeAddressData(coordinate)
+        // })
+        // .then((response) => {
+        //   return GeocodeTranslator.translate(response);
+        // })
+        // .then((locations) => {
+        //   return GeocodeService.getFirstLocation(locations);
+        // })
         .catch((error) => {
           throw error;
         });

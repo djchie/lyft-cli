@@ -31,16 +31,18 @@ export default class GeocodeTranslator {
       throw new TypeError('expected longitude to be a number');
     }
 
-    return new Coordinate({
-      latitude: latitude,
-      longitude: longitude,
-    });
-    // return new Location({
-    //   name: 'Current Location',
-    //   coordinate: new Coordinate({
-    //     latitude: latitude,
-    //     longitude: longitude,
-    //   })
+    // Uncomment below for showing current location address
+    // return new Coordinate({
+    //   latitude: latitude,
+    //   longitude: longitude,
     // });
+
+    return new Location({
+      name: 'Current Location',
+      coordinate: new Coordinate({
+        latitude: latitude,
+        longitude: longitude,
+      })
+    });
   }
 }

@@ -50,8 +50,15 @@ export default class NearbyDriversTableBuilder {
   static buildNearbyDriverRow(nearbyDriver) {
     return [
       NearbyDriverFormatter.formatRideType(nearbyDriver.rideType),
-      NearbyDriverFormatter.formatDistance(nearbyDriver.distance),
+      NearbyDriversTableBuilder.buildDistance(NearbyDriverFormatter.formatDistance(nearbyDriver.distance)).toJS(),
     ];
+  }
+
+  static buildDistance(distance) {
+    return Map({
+      content: distance,
+      hAlign: 'center',
+    })
   }
 
   static sortByRideType(nearbyDriver1, nearbyDriver2) {

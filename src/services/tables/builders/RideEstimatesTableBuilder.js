@@ -55,7 +55,7 @@ export default class RideEstimatesTableBuilder {
       CostEstimateFormatter.formatRange(costEstimate.priceRange),
       CostEstimateFormatter.formatDistance(costEstimate.estimatedDistance),
       CostEstimateFormatter.formatDuration(costEstimate.estimatedDuration),
-      RideEstimatesTableBuilder.buildPrimetimePercentageSymbol(costEstimate.primetimePercentage),
+      RideEstimatesTableBuilder.buildPrimetimePercentageSymbol(costEstimate.primetimePercentage).toJS(),
     ];
   }
 
@@ -74,7 +74,10 @@ export default class RideEstimatesTableBuilder {
       primetime = `${primetime} ${emoji.get('weary')}`;
     }
 
-    return primetime;
+    return Map({
+      content: primetime,
+      hAlign: 'center',
+    });
    }
 
   static buildLocationRow(name, isEnd) {

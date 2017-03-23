@@ -2,7 +2,8 @@
 
 import emoji from 'node-emoji';
 import {
-  List,Map
+  List,
+  Map,
 } from 'immutable';
 import Table from 'cli-table2';
 
@@ -51,8 +52,15 @@ export default class DriverEtasTableBuilder {
     // TODO: Check for driverEta.isValidEstimate
     return [
       driverEta.displayName,
-      DriverEtaFormatter.formatDuration(driverEta.etaSeconds),
+      DriverEtasTableBuilder.buildDuration(DriverEtaFormatter.formatDuration(driverEta.etaSeconds)).toJS(),
     ];
+  }
+
+  static buildDuration(duration) {
+    return Map({
+      content: duration,
+      hAlign: 'center',
+    })
   }
 
   static sortByDisplayName(driverEta1, driverEta2) {
