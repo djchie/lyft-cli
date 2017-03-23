@@ -15,11 +15,6 @@ program
   })
   .parse(process.argv);
 
-// if (addressArg === undefined) {
-//   console.error('Please provide an address!');
-//   process.exit(1);
-// }
-
 try {
   service.executeNearbyDrivers(addressArg)
     .then(table => console.log(table));
