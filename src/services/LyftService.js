@@ -35,10 +35,7 @@ export default class LyftService {
   }
 
   getRideTypes(address) {
-    return this.geocodeService.getLocations(address)
-      .then((locations) => {
-        return LyftService.getFirstLocation(locations);
-      })
+    return this.geocodeService.getLocation(address)
       .then((location) => {
         const query = {
           start: {
@@ -56,7 +53,7 @@ export default class LyftService {
           })
           .catch((error) => {
             throw error;
-          });;
+          });
       })
       .catch((error) => {
         throw error;
@@ -64,10 +61,7 @@ export default class LyftService {
   }
 
   getDriverEtas(address) {
-    return this.geocodeService.getLocations(address)
-      .then((locations) => {
-        return LyftService.getFirstLocation(locations)
-      })
+    return this.geocodeService.getLocation(address)
       .then((location) => {
         const query = {
           start: {
@@ -93,17 +87,17 @@ export default class LyftService {
   }
 
   getRideEstimates(addresses) {
-    let startLocation = this.geocodeService.getLocations(addresses.startAddress)
-      .then((locations) => {
-        return LyftService.getFirstLocation(locations)
+    let startLocation = this.geocodeService.getLocation(addresses.startAddress)
+      .then((location) => {
+        return location;
       })
       .catch((error) => {
         throw error;
       });
 
-    let endLocation = this.geocodeService.getLocations(addresses.endAddress)
-      .then((locations) => {
-        return LyftService.getFirstLocation(locations)
+    let endLocation = this.geocodeService.getLocation(addresses.endAddress)
+      .then((location) => {
+        return location;
       })
       .catch((error) => {
         throw error;
@@ -140,10 +134,7 @@ export default class LyftService {
   }
 
   getNearbyDrivers(address) {
-    return this.geocodeService.getLocations(address)
-      .then((locations) => {
-        return LyftService.getFirstLocation(locations);
-      })
+    return this.geocodeService.getLocation(address)
       .then((location) => {
         const query = {
           start: {
@@ -165,14 +156,14 @@ export default class LyftService {
       })
       .catch((error) => {
         throw error;
-      });;
+      });
   }
 
-  static getFirstLocation(locations) {
-    if (locations.isEmpty()) {
-      throw new RangeError('no locations for address');
-    }
+  // static getFirstLocation(locations) {
+  //   if (locations.isEmpty()) {
+  //     throw new RangeError('no locations for address');
+  //   }
 
-    return locations.first();
-  }
+  //   return locations.first();
+  // }
 }

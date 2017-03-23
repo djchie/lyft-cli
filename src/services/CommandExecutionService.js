@@ -18,9 +18,9 @@ export default class CommandExecutionService {
   }
 
   executeRideTypes(address) {
-    if (typeof address !== 'string') {
-      throw new TypeError('address should be a string');
-    }
+    // if (typeof address !== 'string') {
+    //   throw new TypeError('address should be a string');
+    // }
 
     return this.lyftService.getRideTypes(address)
       .then((rideTypes) => {
@@ -29,9 +29,9 @@ export default class CommandExecutionService {
   }
 
   executeDriverEtas(address) {
-    if (typeof address !== 'string') {
-      throw new TypeError('address should be a string');
-    }
+    // if (typeof address !== 'string') {
+    //   throw new TypeError('address should be a string');
+    // }
 
     return this.lyftService.getDriverEtas(address)
       .then((driverEtas) => {
@@ -40,9 +40,9 @@ export default class CommandExecutionService {
   }
 
   executeRideEstimates(startAddress, endAddress) {
-    if (typeof startAddress !== 'string') {
-      throw new TypeError('start address should be a string');
-    }
+    // if (typeof startAddress !== 'string') {
+    //   throw new TypeError('start address should be a string');
+    // }
 
     if (typeof endAddress !== 'string') {
       throw new TypeError('end address should be a string');
@@ -57,9 +57,9 @@ export default class CommandExecutionService {
   }
 
   executeNearbyDrivers(address) {
-    if (typeof address !== 'string') {
-      throw new TypeError('address should be a string');
-    }
+    // if (typeof address !== 'string') {
+    //   throw new TypeError('address should be a string');
+    // }
 
     return this.lyftService.getNearbyDrivers(address)
       .then((nearbyDrivers) => {

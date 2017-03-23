@@ -26,10 +26,24 @@ export default class GeocodeService {
     });
   }
 
-  getLocations(address) {
+  getLocation(address) {
     return this.getData(address)
       .then((response) => {
         return GeocodeTranslator.translate(response);
+      })
+      .then((locations) => {
+        return GeocodeService.getFirstLocation(locations);
+      })
+      .catch((error) => {
+        throw error;
       });
+  }
+
+  static getFirstLocation(locations) {
+    if (locations.isEmpty()) {
+      throw new RangeError('no locations for address');
+    }
+
+    return locations.first();
   }
 }
