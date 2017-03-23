@@ -48,6 +48,7 @@ export default class DriverEtasTableBuilder {
   }
 
   static buildDriverEtaRow(driverEta) {
+    // TODO: Check for driverEta.isValidEstimate
     return [
       driverEta.displayName,
       DriverEtaFormatter.formatDuration(driverEta.etaSeconds),

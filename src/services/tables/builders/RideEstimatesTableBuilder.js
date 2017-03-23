@@ -49,6 +49,7 @@ export default class RideEstimatesTableBuilder {
   }
 
   static buildCostEstimateRow(costEstimate) {
+    // TODO: Check for costEstimate.isValidEstimate
     return [
       costEstimate.displayName,
       CostEstimateFormatter.formatRange(costEstimate.priceRange),
@@ -65,9 +66,9 @@ export default class RideEstimatesTableBuilder {
       primetime = `${primetime} ${emoji.get('slightly_smiling_face')}`;
     } else if (primetimePercentage <= 25) {
       primetime = `${primetime} ${emoji.get('confused')}`;
-    } else if (primetimePercentage <= 35) {
-      primetime = `${primetime} ${emoji.get('slightly_frowning_face')}`;
     } else if (primetimePercentage <= 50) {
+      primetime = `${primetime} ${emoji.get('slightly_frowning_face')}`;
+    } else if (primetimePercentage <= 75) {
       primetime = `${primetime} ${emoji.get('cry')}`;
     } else {
       primetime = `${primetime} ${emoji.get('weary')}`;
