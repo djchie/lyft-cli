@@ -44,7 +44,7 @@
     "enumify": "^1.0.4",
     "immutable": "^3.8.1",
     "node-emoji": "^1.4.3",
-    "lyft-node": "^0.0.3"
+    "lyft-node": "^0.0.5"
   },
   "preferGlobal": true,
   "devDependencies": {

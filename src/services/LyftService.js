@@ -16,6 +16,9 @@ import NearbyDriversTranslator from './translators/NearbyDriversTranslator';
 import DriverEtas from '../data/DriverEtas';
 import DriverEtasTranslator from './translators/DriverEtasTranslator';
 
+import RideEstimates from '../data/RideEstimates';
+import RideEstimatesTranslator from './translators/RideEstimatesTranslator';
+
 import PriceEstimates from '../data/PriceEstimates';
 import PriceEstimatesTranslator from './translators/PriceEstimatesTranslator';
 import TimeEstimates from '../data/TimeEstimates';
@@ -49,7 +52,13 @@ export default class LyftService {
               location: location,
               rideTypes: RideTypesTranslator.translate(response),
             });
-          });
+          })
+          .catch((error) => {
+            throw error;
+          });;
+      })
+      .catch((error) => {
+        throw error;
       });
   }
 
@@ -72,7 +81,13 @@ export default class LyftService {
               location: location,
               driverEtas: DriverEtasTranslator.translate(response),
             });
+          })
+          .catch((error) => {
+            throw error;
           });
+      })
+      .catch((error) => {
+        throw error;
       });
   }
 
@@ -80,11 +95,17 @@ export default class LyftService {
     let startLocation = this.geocodeService.getLocations(addresses.startAddress)
       .then((locations) => {
         return LyftService.getFirstLocation(locations)
+      })
+      .catch((error) => {
+        throw error;
       });
 
     let endLocation = this.geocodeService.getLocations(addresses.endAddress)
       .then((locations) => {
         return LyftService.getFirstLocation(locations)
+      })
+      .catch((error) => {
+        throw error;
       });
 
     return Promise.all([startLocation, endLocation])
@@ -100,46 +121,20 @@ export default class LyftService {
           },
         };
 
-        const lyftQuery = Object.assign({
-          rideType: 'lyft',
-        }, query);
-
-        const lyftLineQuery = Object.assign({
-          rideType: 'lyft_line',
-        }, query);
-
-        const lyftPlusQuery = Object.assign({
-          rideType: 'lyft_plus',
-        }, query);
-
-        let lyftRideEstimates = this.lyftApi.getRideEstimates(lyftQuery)
+        return this.lyftApi.getRideEstimates(query)
           .then((response) => {
-            return response;
+            return new RideEstimates({
+              start: locations[0],
+              end: locations[1],
+              costEstimates: RideEstimatesTranslator.translate(response),
+            })
+          })
+          .catch((error) => {
+            throw error;
           });
-
-        let lyftLineRideEstimates = this.lyftApi.getRideEstimates(lyftLineQuery)
-          .then((response) => {
-            return response;
-          });
-
-        let lyftPlusRideEstimates = this.lyftApi.getRideEstimates(lyftPlusQuery)
-          .then((response) => {
-            return response;
-          });
-
-        return Promise.all([
-          lyftRideEstimates,
-          lyftLineRideEstimates,
-          lyftPlusRideEstimates
-        ])
-          .then((responses) => {
-            return responses;
-            // return new PriceEstimates({
-            //   start: values[0],
-            //   end: values[1],
-            //   estimates: PriceEstimatesTranslator.translate(response, query.distanceUnit),
-            // });
-          });
+      })
+      .catch((error) => {
+        throw error;
       });
   }
 
@@ -162,8 +157,14 @@ export default class LyftService {
               location: location,
               nearbyDrivers: NearbyDriversTranslator.translate(response, location),
             });
+          })
+          .catch((error) => {
+            throw error;
           });
-      });
+      })
+      .catch((error) => {
+        throw error;
+      });;
   }
 
   static getFirstLocation(locations) {

@@ -3,8 +3,8 @@
 import {Record} from 'immutable';
 
 let defaults = {
-  low: 0,
-  high: 0,
+  min: 0,
+  max: 0,
   currencyCode: 'USD'
 };
 
