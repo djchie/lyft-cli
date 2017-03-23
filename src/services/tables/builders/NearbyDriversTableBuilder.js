@@ -30,7 +30,7 @@ export default class NearbyDriversTableBuilder {
   static getTableHeaders() {
     return List.of(
       emoji.get('red_car'),
-      emoji.get('triangular_ruler')
+      emoji.get('straight_ruler')
     );
   }
 
