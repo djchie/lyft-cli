@@ -65,12 +65,12 @@ describe('Test Driver Etas Translator', () => {
   });
 
   it('should throw when attempting to translate eta estimates', () => {
-    let incorrectlyFormattedEtaEstimate = {};
+    let incorrectlyFormattedResponse = {};
 
-    expect(() => DriverEtasTranslator.translate(incorrectlyFormattedEtaEstimate)).to.throw(ReferenceError);
+    expect(() => DriverEtasTranslator.translate(incorrectlyFormattedResponse)).to.throw(ReferenceError);
 
-    incorrectlyFormattedEtaEstimate['eta_estimates'] = 1;
+    incorrectlyFormattedResponse['eta_estimates'] = 1;
 
-    expect(() => DriverEtasTranslator.translate(incorrectlyFormattedEtaEstimate)).to.throw(TypeError);
+    expect(() => DriverEtasTranslator.translate(incorrectlyFormattedResponse)).to.throw(TypeError);
   });
 });
