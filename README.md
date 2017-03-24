@@ -23,67 +23,53 @@ npm install lyft-cli -g
 
 ### Get Time-To-Pickup Estimates
 
-#### Current Location
-
-```
-lyft time
-```
-
-#### With Pickup Address
+Gets an estimate on how long it'll take for a Lyft to arrive
 
 ```
 lyft time 'pickup address here'
 ```
 
-![alt_text](http://imgur.com/UPLOADIMG!!!.png)
+![alt_text](http://imgur.com/vbDsRN2.png)
 
 ### Get Price Estimates
 
-#### Current Location
-
-```
-lyft price -e 'end address'
-```
-
-#### With Pickup Address
+Gets an estimate on the price and duration of a Lyft ride as well as the Prime Time percentage
 
 ```
 lyft price -s 'start address' -e 'end address'
 ```
 
-![alt_text](http://imgur.com/UPLOADIMG!!!.png)
+![alt_text](http://imgur.com/DY1Valy.png)
 
 ### Get Services Avaible
 
-#### Current Location
-
-```
-lyft types
-```
-
-#### With Pickup Address
+Determines which of the Lyft services are available at a given location
 
 ```
 lyft types 'pickup address here'
 ```
 
-![alt_text](http://imgur.com/UPLOADIMG!!!.png)
+![alt_text](http://imgur.com/fgABMMx!.png)
 
 ### Get Closest Car Estimates
 
-#### Current Location
-
-```
-lyft drivers
-```
-
-#### With Pickup Address
+Gets the distances of the nearest cars by service by a location
 
 ```
 lyft drivers 'pickup address here'
 ```
 
-![alt_text](http://imgur.com/UPLOADIMG!!!.png)
+![alt_text](http://imgur.com/9QkaVr8.png)
+
+### Using Current Location
+
+Just don't enter in a `'pickup address here'` or `-e 'end address'` for any of the commands.
+
+```
+lyft time
+```
+
+![alt_text](http://imgur.com/CZTCtQV.png)
 
 ## License
 
