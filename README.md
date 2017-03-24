@@ -21,7 +21,7 @@ npm install lyft-cli -g
 
 ## Usage
 
-### Get Time=To-Pickup Estimates
+### Get Time-To-Pickup Estimates
 
 #### Current Location
 
