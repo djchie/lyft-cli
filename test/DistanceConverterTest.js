@@ -15,8 +15,12 @@ let expect = chai.expect;
 
 describe('Test Distance Converter', () => {
   it('Unit identifier test', () => {
-    expect(DistanceConverter.getUnitConversionIdentifier(DistanceUnit.MILE)).to.equal('mi');
-    expect(DistanceConverter.getUnitConversionIdentifier(DistanceUnit.KILOMETER)).to.equal('m');
+    it('tests miles unit identifier', () => {
+      expect(DistanceConverter.getUnitConversionIdentifier(DistanceUnit.MILE)).to.equal('mi');
+    });
+    it('tests kilometers unit identifier', () => {
+      expect(DistanceConverter.getUnitConversionIdentifier(DistanceUnit.KILOMETER)).to.equal('m');
+    });
   });
 
   const distance = 1.234;
@@ -31,7 +35,11 @@ describe('Test Distance Converter', () => {
   });
 
   it('Distance conversion test', () => {
-    expect(DistanceConverter.convert(distanceInMiles, DistanceUnit.MILE)).to.eql(distanceInMiles);
-    expect(DistanceConverter.convert(distanceInMiles, DistanceUnit.KILOMETER)).to.eql(distanceInKilometers);
+    it('tests miles to miles conversion', () => {
+      expect(DistanceConverter.convert(distanceInMiles, DistanceUnit.MILE)).to.eql(distanceInMiles);
+    });
+    it('tests miles to kilometers conversion', () => {
+      expect(DistanceConverter.convert(distanceInMiles, DistanceUnit.KILOMETER)).to.eql(distanceInKilometers);
+    });
   });
 });

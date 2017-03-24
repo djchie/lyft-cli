@@ -42,7 +42,7 @@ export default class CurrentLocationTranslator {
       coordinate: new Coordinate({
         latitude: latitude,
         longitude: longitude,
-      })
+      }),
     });
   }
 }

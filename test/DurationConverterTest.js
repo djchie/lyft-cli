@@ -13,9 +13,13 @@ chai.use(chaiImmutable);
 let expect = chai.expect;
 
 describe('Test Duration Converter', () => {
-  it('Unit identifier test', () => {
-    expect(DurationConverter.getUnitConversionIdentifier(TimeUnit.SECOND)).to.equal('s');
-    expect(DurationConverter.getUnitConversionIdentifier(TimeUnit.MINUTE)).to.equal('min');
+  describe('Unit identifier test', () => {
+    it('tests seconds unit identifier', () => {
+      expect(DurationConverter.getUnitConversionIdentifier(TimeUnit.SECOND)).to.equal('s');
+    });
+    it('tests minutes unit identifier', () => {
+      expect(DurationConverter.getUnitConversionIdentifier(TimeUnit.MINUTE)).to.equal('min');
+    });
   });
 
   const length = 60
@@ -29,8 +33,12 @@ describe('Test Duration Converter', () => {
     unit: TimeUnit.MINUTE
   });
 
-  it('Duration conversion test', () => {
-    expect(DurationConverter.convert(durationInSeconds, TimeUnit.SECOND)).to.eql(durationInSeconds);
-    expect(DurationConverter.convert(durationInSeconds, TimeUnit.MINUTE)).to.eql(durationInMinutes);
+  describe('Duration conversion test', () => {
+    it('tests seconds to seconds conversion', () => {
+      expect(DurationConverter.convert(durationInSeconds, TimeUnit.SECOND)).to.eql(durationInSeconds);
+    });
+    it('tests seconds to minutes conversion', () => {
+      expect(DurationConverter.convert(durationInSeconds, TimeUnit.MINUTE)).to.eql(durationInMinutes);
+    });
   });
 });
