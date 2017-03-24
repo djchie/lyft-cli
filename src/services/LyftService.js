@@ -119,7 +119,7 @@ export default class LyftService {
               start: locations[0],
               end: locations[1],
               costEstimates: RideEstimatesTranslator.translate(response),
-            })
+            });
           })
           .catch((error) => {
             throw error;
