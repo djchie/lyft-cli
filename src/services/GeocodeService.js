@@ -2,10 +2,13 @@
 
 import GoogleMapsClient from '@google/maps';
 import CurrentLocation from 'current-location';
+import dotenv from 'dotenv';
 
 import Coordinate from '../data/Coordinate';
 import GeocodeTranslator from './translators/GeocodeTranslator';
 import CurrentLocationTranslator from './translators/CurrentLocationTranslator';
+
+dotenv.load();
 
 export default class GeocodeService {
   constructor() {
@@ -35,7 +38,7 @@ export default class GeocodeService {
           return reject(error);
         }
 
-        resolve(data.json, coordinate);
+        resolve(data.json);
       });
     });
   }

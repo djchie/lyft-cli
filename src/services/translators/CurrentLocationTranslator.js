@@ -8,7 +8,7 @@ import Coordinate from '../../data/Coordinate';
 import Location from '../../data/Location';
 import Utilities from '../../Utilities';
 
-export default class GeocodeTranslator {
+export default class CurrentLocationTranslator {
   static translate(json) {
 
     if (!('latitude' in json)) {

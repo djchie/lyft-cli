@@ -1,0 +1,516 @@
+{
+  "results": [
+    {
+      "address_components": [
+        {
+          "long_name": "6436",
+          "short_name": "6436",
+          "types": [
+            "street_number"
+          ]
+        },
+        {
+          "long_name": "Saipan Street",
+          "short_name": "Saipan St",
+          "types": [
+            "route"
+          ]
+        },
+        {
+          "long_name": "Cypress",
+          "short_name": "Cypress",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Orange County",
+          "short_name": "Orange County",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "California",
+          "short_name": "CA",
+          "types": [
+            "administrative_area_level_1",
+            "political"
+          ]
+        },
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": [
+            "country",
+            "political"
+          ]
+        },
+        {
+          "long_name": "90630",
+          "short_name": "90630",
+          "types": [
+            "postal_code"
+          ]
+        },
+        {
+          "long_name": "5621",
+          "short_name": "5621",
+          "types": [
+            "postal_code_suffix"
+          ]
+        }
+      ],
+      "formatted_address": "6436 Saipan St, Cypress, CA 90630, USA",
+      "geometry": {
+        "location": {
+          "lat": 33.792858,
+          "lng": -118.021032
+        },
+        "location_type": "ROOFTOP",
+        "viewport": {
+          "northeast": {
+            "lat": 33.79420698029149,
+            "lng": -118.0196830197085
+          },
+          "southwest": {
+            "lat": 33.79150901970849,
+            "lng": -118.0223809802915
+          }
+        }
+      },
+      "place_id": "ChIJd1kN8Sov3YARH4odu4nE3Kw",
+      "types": [
+        "street_address"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "Cypress",
+          "short_name": "Cypress",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Orange County",
+          "short_name": "Orange County",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "California",
+          "short_name": "CA",
+          "types": [
+            "administrative_area_level_1",
+            "political"
+          ]
+        },
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "formatted_address": "Cypress, CA, USA",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 33.846198,
+            "lng": -118.0106949
+          },
+          "southwest": {
+            "lat": 33.791815,
+            "lng": -118.063397
+          }
+        },
+        "location": {
+          "lat": 33.8169599,
+          "lng": -118.0372852
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 33.846198,
+            "lng": -118.0106949
+          },
+          "southwest": {
+            "lat": 33.791815,
+            "lng": -118.063397
+          }
+        }
+      },
+      "place_id": "ChIJ7_ZrWZIu3YAREFTB1a3XLNQ",
+      "types": [
+        "locality",
+        "political"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "90630",
+          "short_name": "90630",
+          "types": [
+            "postal_code"
+          ]
+        },
+        {
+          "long_name": "Cypress",
+          "short_name": "Cypress",
+          "types": [
+            "locality",
+            "political"
+          ]
+        },
+        {
+          "long_name": "Orange County",
+          "short_name": "Orange County",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "California",
+          "short_name": "CA",
+          "types": [
+            "administrative_area_level_1",
+            "political"
+          ]
+        },
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "formatted_address": "Cypress, CA 90630, USA",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 33.845818,
+            "lng": -118.010493
+          },
+          "southwest": {
+            "lat": 33.791998,
+            "lng": -118.064955
+          }
+        },
+        "location": {
+          "lat": 33.816539,
+          "lng": -118.0361736
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 33.845818,
+            "lng": -118.010493
+          },
+          "southwest": {
+            "lat": 33.791998,
+            "lng": -118.064955
+          }
+        }
+      },
+      "place_id": "ChIJ96D79Lwu3YARJZ6C-f-9bkU",
+      "types": [
+        "postal_code"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "Orange County",
+          "short_name": "Orange County",
+          "types": [
+            "administrative_area_level_2",
+            "political"
+          ]
+        },
+        {
+          "long_name": "California",
+          "short_name": "CA",
+          "types": [
+            "administrative_area_level_1",
+            "political"
+          ]
+        },
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "formatted_address": "Orange County, CA, USA",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 33.94751189999999,
+            "lng": -117.4129869
+          },
+          "southwest": {
+            "lat": 33.33399199999999,
+            "lng": -118.125901
+          }
+        },
+        "location": {
+          "lat": 33.7174708,
+          "lng": -117.8311428
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 33.94751189999999,
+            "lng": -117.4129869
+          },
+          "southwest": {
+            "lat": 33.38652640000001,
+            "lng": -118.1163782
+          }
+        }
+      },
+      "place_id": "ChIJz_fVVFyS3IARB9bwj2HDpt4",
+      "types": [
+        "administrative_area_level_2",
+        "political"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "Los Angeles-Long Beach-Santa Ana, CA",
+          "short_name": "Los Angeles-Long Beach-Santa Ana, CA",
+          "types": [
+            "political"
+          ]
+        },
+        {
+          "long_name": "California",
+          "short_name": "CA",
+          "types": [
+            "administrative_area_level_1",
+            "political"
+          ]
+        },
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "formatted_address": "Los Angeles-Long Beach-Santa Ana, CA, CA, USA",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 34.82297399999999,
+            "lng": -117.4129869
+          },
+          "southwest": {
+            "lat": 32.8005949,
+            "lng": -118.9448871
+          }
+        },
+        "location": {
+          "lat": 34.0596149,
+          "lng": -118.1122679
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 34.82297399999999,
+            "lng": -117.4129869
+          },
+          "southwest": {
+            "lat": 33.2990751,
+            "lng": -118.9448871
+          }
+        }
+      },
+      "place_id": "ChIJO5W2Si_owoARWUI8pSNYpE8",
+      "types": [
+        "political"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "Los Angeles Metropolitan Area",
+          "short_name": "Los Angeles Metropolitan Area",
+          "types": [
+            "political"
+          ]
+        },
+        {
+          "long_name": "California",
+          "short_name": "CA",
+          "types": [
+            "administrative_area_level_1",
+            "political"
+          ]
+        },
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "formatted_address": "Los Angeles Metropolitan Area, CA, USA",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 34.8231929,
+            "lng": -117.4129869
+          },
+          "southwest": {
+            "lat": 32.75004,
+            "lng": -118.9517211
+          }
+        },
+        "location": {
+          "lat": 34.0522166,
+          "lng": -118.2436619
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 34.8231929,
+            "lng": -117.4129869
+          },
+          "southwest": {
+            "lat": 32.75004,
+            "lng": -118.9517211
+          }
+        }
+      },
+      "place_id": "ChIJP__G9Wcx3YARZaspTiCdN6s",
+      "types": [
+        "political"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "California",
+          "short_name": "CA",
+          "types": [
+            "administrative_area_level_1",
+            "establishment",
+            "point_of_interest",
+            "political"
+          ]
+        },
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "formatted_address": "California, USA",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 42.0095169,
+            "lng": -114.131211
+          },
+          "southwest": {
+            "lat": 32.528832,
+            "lng": -124.482003
+          }
+        },
+        "location": {
+          "lat": 36.778261,
+          "lng": -119.4179324
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 42.009378,
+            "lng": -114.131211
+          },
+          "southwest": {
+            "lat": 32.5342852,
+            "lng": -124.4151821
+          }
+        }
+      },
+      "place_id": "ChIJPV4oX_65j4ARVW8IJ6IJUYs",
+      "types": [
+        "administrative_area_level_1",
+        "establishment",
+        "point_of_interest",
+        "political"
+      ]
+    },
+    {
+      "address_components": [
+        {
+          "long_name": "United States",
+          "short_name": "US",
+          "types": [
+            "country",
+            "political"
+          ]
+        }
+      ],
+      "formatted_address": "United States",
+      "geometry": {
+        "bounds": {
+          "northeast": {
+            "lat": 71.5388001,
+            "lng": -66.885417
+          },
+          "southwest": {
+            "lat": 18.7763,
+            "lng": 170.5957
+          }
+        },
+        "location": {
+          "lat": 37.09024,
+          "lng": -95.712891
+        },
+        "location_type": "APPROXIMATE",
+        "viewport": {
+          "northeast": {
+            "lat": 49.38,
+            "lng": -66.94
+          },
+          "southwest": {
+            "lat": 25.82,
+            "lng": -124.39
+          }
+        }
+      },
+      "place_id": "ChIJCzYy5IS16lQRQrfeQ5K5Oxw",
+      "types": [
+        "country",
+        "political"
+      ]
+    }
+  ],
+  "status": "OK"
+}

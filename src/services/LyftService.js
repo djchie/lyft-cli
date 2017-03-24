@@ -4,6 +4,7 @@ import {
   List,
 } from 'immutable';
 import Lyft from 'lyft-node';
+import dotenv from 'dotenv';
 
 import GeocodeService from './GeocodeService';
 
@@ -18,6 +19,8 @@ import DriverEtasTranslator from './translators/DriverEtasTranslator';
 
 import RideEstimates from '../data/RideEstimates';
 import RideEstimatesTranslator from './translators/RideEstimatesTranslator';
+
+dotenv.load();
 
 export default class LyftService {
   constructor() {
