@@ -5,7 +5,7 @@
 
 ## Introduction
 
-This is the Lyft CLI. Saw jaebradley create one for Uber, and thought, why not make one for Lyft as well.
+This is the Lyft CLI. Saw [jaebradley](https://github.com/jaebradley) create one for Uber, and thought, why not make one for Lyft as well.
 
 Use it to check for the estimated prices for a ride or for the estimated time for a car to arrive. You can also see if the lyft, lyft line, or lyft plus service is available at your address and get the estimated distance of the closest lyft, lyft line, or lyft plus car.
 
