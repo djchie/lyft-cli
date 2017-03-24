@@ -58,7 +58,7 @@ describe('Test Nearby Drivers Translator', () => {
     name: 'chie',
     coordinate: coordinate,
   });
-  let expectedDriverEta = new NearbyDriver({
+  let expectedNearbyDriver = new NearbyDriver({
     rideType: rideType,
     distance: new Distance({
       value: 70.02213617201771,
@@ -71,10 +71,10 @@ describe('Test Nearby Drivers Translator', () => {
       nearbyDriver,
     ],
   };
-  let expectedDriverEtas = List.of(expectedDriverEta, expectedDriverEta);
+  let expectedNearbyDrivers = List.of(expectedNearbyDriver, expectedNearbyDriver);
 
   it('should translate nearby driver', () => {
-    expect(NearbyDriversTranslator.translateNearbyDriver(nearbyDriver, coordinate)).to.eql(expectedDriverEta);
+    expect(NearbyDriversTranslator.translateNearbyDriver(nearbyDriver, coordinate)).to.eql(expectedNearbyDriver);
   });
 
   it('should throw when attempting to translate nearby driver', () => {
@@ -117,7 +117,7 @@ describe('Test Nearby Drivers Translator', () => {
   });
 
   it('should translate nearby drivers', () => {
-    expect(NearbyDriversTranslator.translate(mockResponse, location)).to.eql(expectedDriverEtas);
+    expect(NearbyDriversTranslator.translate(mockResponse, location)).to.eql(expectedNearbyDrivers);
   });
 
   it('should throw when attempting to translate nearby drivers', () => {

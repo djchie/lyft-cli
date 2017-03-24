@@ -15,5 +15,5 @@ let defaults = {
   primetimePercentage: 0,
 };
 
-export default class CostEstimate extends Record(defaults) {
+export default class RideEstimate extends Record(defaults) {
 }

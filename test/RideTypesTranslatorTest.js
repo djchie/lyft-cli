@@ -6,8 +6,6 @@ import {
   List,
 } from 'immutable';
 
-import TimeUnit from '../src/data/TimeUnit';
-import Duration from '../src/data/Duration';
 import RideType from '../src/data/RideType';
 import RideTypesTranslator from '../src/services/translators/RideTypesTranslator';
 

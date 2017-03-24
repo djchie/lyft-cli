@@ -7,7 +7,7 @@ import DistanceUnit from '../../data/DistanceUnit';
 import Duration from '../../data/Duration';
 import TimeUnit from '../../data/TimeUnit';
 import PriceRange from '../../data/PriceRange';
-import CostEstimate from '../../data/CostEstimate';
+import RideEstimate from '../../data/RideEstimate';
 
 export default class RideEstimatesTranslator {
   static translate(response) {
@@ -109,7 +109,7 @@ export default class RideEstimatesTranslator {
       throw new TypeError('expected display_name to be a string');
     }
 
-    return new CostEstimate({
+    return new RideEstimate({
       displayName: displayName,
       estimatedDuration: new Duration({
         length: estimatedDurationSeconds,
