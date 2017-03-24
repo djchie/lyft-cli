@@ -49,7 +49,7 @@ Determines which of the Lyft services are available at a given location
 lyft types 'pickup address here'
 ```
 
-![alt_text](http://imgur.com/fgABMMx!.png)
+![alt_text](http://imgur.com/fgABMMx.png)
 
 ### Get Closest Car Estimates
 
