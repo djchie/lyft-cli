@@ -30,7 +30,7 @@ describe('Test Geocode Translator', () => {
     geometry: geometry1
   };
 
-  it('tests location translation', () => {
+  it('tests geocode location translation', () => {
     let expectedLocation = new Location({
       name: address1,
       coordinate: new Coordinate({
@@ -41,7 +41,7 @@ describe('Test Geocode Translator', () => {
     expect(GeocodeTranslator.translateLocation(locationJson)).to.eql(expectedLocation);
   });
 
-  it('tests location translation error cases', () => {
+  it('tests geocode location translation error cases', () => {
     let json = {};
     expect(() => GeocodeTranslator.translateLocation(json)).to.throw(ReferenceError);
     json['formatted_address'] = undefined;
@@ -68,7 +68,7 @@ describe('Test Geocode Translator', () => {
     json['geometry']['location']['lat'] = 1.234;
   });
 
-  it('tests full translation error cases', () => {
+  it('tests full geocode location translation error cases', () => {
     let json = {};
 
     expect(() => GeocodeTranslator.translate(json)).to.throw(ReferenceError);

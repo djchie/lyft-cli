@@ -1,85 +1,65 @@
-// 'use es6';
+'use es6';
 
-// import chai from 'chai';
-// import chaiImmutable from 'chai-immutable';
-// import {List} from 'immutable';
+import chai from 'chai';
+import chaiImmutable from 'chai-immutable';
+import {List} from 'immutable';
 
-// import Coordinate from '../src/data/Coordinate';
-// import CurrentLocationTranslator from '../src/services/translators/CurrentLocationTranslator';
-// import Location from '../src/data/Location';
+import Coordinate from '../src/data/Coordinate';
+import CurrentLocationTranslator from '../src/services/translators/CurrentLocationTranslator';
+import Location from '../src/data/Location';
 
-// import geocodeFile from './data/geocode';
+import geocodeFile from './data/geocode';
 
-// chai.use(chaiImmutable);
+chai.use(chaiImmutable);
 
-// let expect = chai.expect;
+let expect = chai.expect;
 
-// describe('Test Current Location Translator', () => {
-//   let address1 = 'derrick';
-//   let latitude1 = 1.2;
-//   let longitude1 = 2.3;
-//   let location1 = {
-//     lat: latitude1,
-//     lng: longitude1
-//   };
-//   let geometry1 = {
-//     location: location1
-//   };
-//   let locationJson = {
-//     formatted_address: address1,
-//     geometry: geometry1
-//   };
+describe('Test Current Location Translator', () => {
+  let latitude = 1.2;
+  let longitude = 2.3;
+  let locationJson = {
+    latitude: latitude,
+    longitude: longitude,
+  };
 
-//   it('tests location translation', () => {
-//     let expectedLocation = new Location({
-//       name: address1,
-//       coordinate: new Coordinate({
-//         longitude: longitude1,
-//         latitude: latitude1
-//       })
-//     });
-//     expect(CurrentLocationTranslator.translateLocation(locationJson)).to.eql(expectedLocation);
-//   });
+  it('tests current location translation', () => {
+    let expectedLocation = new Location({
+      name: 'Current Location',
+      coordinate: new Coordinate({
+        latitude: latitude,
+        longitude: longitude,
+      }),
+    });
+    expect(CurrentLocationTranslator.translate(locationJson)).to.eql(expectedLocation);
+  });
 
-//   it('tests location translation error cases', () => {
-//     let json = {};
-//     expect(() => CurrentLocationTranslator.translateLocation(json)).to.throw(ReferenceError);
-//     json['formatted_address'] = undefined;
+  it('tests current location translation error cases', () => {
+    let json = {};
 
-//     expect(() => CurrentLocationTranslator.translateLocation(json)).to.throw(ReferenceError);
-//     json['geometry'] = {};
+    expect(() => CurrentLocationTranslator.translate(json)).to.throw(ReferenceError);
 
-//     expect(() => CurrentLocationTranslator.translateLocation(json)).to.throw(ReferenceError);
-//     json['geometry']['location'] = {};
+    json['latitude'] = 1.234;
 
-//     expect(() => CurrentLocationTranslator.translateLocation(json)).to.throw(ReferenceError);
-//     json['geometry']['location']['lat'] = undefined;
+    expect(() => CurrentLocationTranslator.translate(json)).to.throw(ReferenceError);
 
-//     expect(() => CurrentLocationTranslator.translateLocation(json)).to.throw(ReferenceError);
-//     json['geometry']['location']['lng'] = undefined;
+    json['longitude'] = 1.234;
+  });
 
-//     expect(() => CurrentLocationTranslator.translateLocation(json)).to.throw(TypeError);
-//     json['formatted_address'] = '';
+  it('tests full current location translation error cases', () => {
+    let json = {};
 
-//     expect(() => CurrentLocationTranslator.translateLocation(json)).to.throw(TypeError);
-//     json['geometry']['location']['lng'] = 1.234;
+    expect(() => CurrentLocationTranslator.translate(json)).to.throw(ReferenceError);
 
-//     expect(() => CurrentLocationTranslator.translateLocation(json)).to.throw(TypeError);
-//     json['geometry']['location']['lat'] = 1.234;
-//   });
+    json['latitude'] = 'derrick';
 
-//   it('tests full translation error cases', () => {
-//     let json = {};
+    expect(() => CurrentLocationTranslator.translate(json)).to.throw(TypeError);
 
-//     expect(() => CurrentLocationTranslator.translate(json)).to.throw(ReferenceError);
-//     json['status'] = 'derrick';
+    json['latitude'] = 1.234;
 
-//     expect(() => CurrentLocationTranslator.translate(json)).to.throw(TypeError);
-//     json['status'] = 'OK';
+    expect(() => CurrentLocationTranslator.translate(json)).to.throw(ReferenceError);
 
-//     expect(() => CurrentLocationTranslator.translate(json)).to.throw(ReferenceError);
-//     json['results'] = undefined;
+    json['longitude'] = 'chie';
 
-//     expect(() => CurrentLocationTranslator.translate(json)).to.throw(TypeError);
-//   });
-// });
+    expect(() => CurrentLocationTranslator.translate(json)).to.throw(TypeError);
+  });
+});
