@@ -7,13 +7,16 @@ import {
   List,
 } from 'immutable';
 
+import Coordinate from '../src/data/Coordinate';
+import Location from '../src/data/Location';
 import RideEstimateQuery from '../src/data/RideEstimateQuery';
 import LyftService from '../src/services/LyftService';
-import DistanceUnit from '../src/data/DistanceUnit';
 
 chai.use(chaiAsPromised);
 chai.use(chaiImmutable);
 chai.should();
+
+let expect = chai.expect;
 
 describe('Test Lyft Service', function() {
   let service = new LyftService();
@@ -22,7 +25,30 @@ describe('Test Lyft Service', function() {
   let rideEstimateQuery = new RideEstimateQuery({
     startAddress: address,
     endAddress: address2,
-    distanceUnit: DistanceUnit.MILE
+  });
+
+  let expectedName = '52 Russ St, San Francisco, CA 94103, USA';
+  let expectedLatitude = 37.7791096;
+  let expectedLongitude = -122.4087096;
+  let expectedCoordinate = new Coordinate({
+    latitude: expectedLatitude,
+    longitude: expectedLongitude,
+  });
+  let expectedLocation = new Location({
+    name: expectedName,
+    coordinate: expectedCoordinate,
+  });
+
+  let expectedEndName = '625 Market St, San Francisco, CA 94105, USA';
+  let expectedEndLatitude = 37.78863510000001;
+  let expectedEndLongitude = -122.4016922;
+  let expectedEndCoordinate = new Coordinate({
+    latitude: expectedEndLatitude,
+    longitude: expectedEndLongitude,
+  });
+  let expectedEndLocation = new Location({
+    name: expectedEndName,
+    coordinate: expectedEndCoordinate,
   });
 
   it('tests ride types fulfillment', () => {
@@ -31,8 +57,8 @@ describe('Test Lyft Service', function() {
 
   it('tests ride types fetching', () => {
     return service.getRideTypes(address)
-      .then((results) => {
-        console.log(results);
+      .then((rideTypes) => {
+        expect(rideTypes.location).to.eql(expectedLocation);
       });
   });
 
@@ -42,8 +68,8 @@ describe('Test Lyft Service', function() {
 
   it('tests driver etas fetching', () => {
     return service.getDriverEtas(address)
-      .then((results) => {
-        console.log(results);
+      .then((driverEtas) => {
+        expect(driverEtas.location).to.eql(expectedLocation);
       });
   });
 
@@ -53,8 +79,9 @@ describe('Test Lyft Service', function() {
 
   it('tests ride estimates fetching', () => {
     return service.getRideEstimates(rideEstimateQuery)
-      .then((results) => {
-        console.log(results);
+      .then((rideEstimates) => {
+        expect(rideEstimates.start).to.eql(expectedLocation);
+        expect(rideEstimates.end).to.eql(expectedEndLocation);
       });
   });
 
@@ -64,8 +91,8 @@ describe('Test Lyft Service', function() {
 
   it('tests nearby drivers fetching', () => {
     return service.getNearbyDrivers(address)
-      .then((results) => {
-        console.log(results);
+      .then((nearbyDrivers) => {
+        expect(nearbyDrivers.location).to.eql(expectedLocation);
       });
   });
 });
