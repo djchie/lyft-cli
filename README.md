@@ -14,7 +14,7 @@ Use it to check for the estimated prices for a ride or for the estimated time fo
 
 You can also use any of the commands below with your current location, meaning you don't have to enter in a pickup address. To do so, simply ignore the `'pickup address here'` argument for the `time`, `types`, and `drivers` commands and the `-e 'end address'` argument for the `price` command. Note however, that the current location feature takes a little longer to render.
 
-Just like Jae, I hate breaking my workflow and having to go through my phone to see if I should order a Lyft or not just to realize that I shouldn't and that I should just walk home instead. I'd rather just break my workflow while in the command line. 
+Just like Jae, I hate breaking my workflow and having to go through my phone to see if I should order a Lyft or not just to realize that I shouldn't and that I should just walk home instead. I'd rather do all of that from the command line. 
 
 ## Install via NPM
 
