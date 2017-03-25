@@ -3,6 +3,9 @@
 [![Build Status](https://travis-ci.org/djchie/lyft-cli.svg?branch=master)](https://travis-ci.org/djchie/lyft-cli)
 [![npm version](https://badge.fury.io/js/lyft-cli.svg)](https://badge.fury.io/js/lyft-cli)
 
+
+[![NPM](https://nodei.co/npm/lyft-cli.png?downloads=true)](https://nodei.co/npm/lyft-cli/)
+
 ## Introduction
 
 This is the Lyft CLI. Saw [jaebradley](https://github.com/jaebradley) create one for Uber, and thought, why not make one for Lyft as well.
