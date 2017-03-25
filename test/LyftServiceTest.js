@@ -18,8 +18,8 @@ chai.should();
 
 let expect = chai.expect;
 
-describe('Test Lyft Service', function() {
-  let service = new LyftService();
+describe('Test Lyft Service', () => {
+  // let service = new LyftService();
   let address = '52 russ street san francisco ca';
   let address2 = '625 market street san francisco ca';
   let rideEstimateQuery = new RideEstimateQuery({
@@ -51,48 +51,48 @@ describe('Test Lyft Service', function() {
     coordinate: expectedEndCoordinate,
   });
 
-  it('tests ride types fulfillment', () => {
-    return service.getRideTypes(address).should.be.fulfilled;
-  })
+  // it('tests ride types fulfillment', () => {
+  //   return service.getRideTypes(address).should.be.fulfilled;
+  // })
 
-  it('tests ride types fetching', () => {
-    return service.getRideTypes(address)
-      .then((rideTypes) => {
-        expect(rideTypes.location).to.eql(expectedLocation);
-      });
-  });
+  // it('tests ride types fetching', () => {
+  //   return service.getRideTypes(address)
+  //     .then((rideTypes) => {
+  //       expect(rideTypes.location).to.eql(expectedLocation);
+  //     });
+  // });
 
-  it('tests driver etas fulfillment', () => {
-    return service.getDriverEtas(address).should.be.fulfilled;
-  })
+  // it('tests driver etas fulfillment', () => {
+  //   return service.getDriverEtas(address).should.be.fulfilled;
+  // })
 
-  it('tests driver etas fetching', () => {
-    return service.getDriverEtas(address)
-      .then((driverEtas) => {
-        expect(driverEtas.location).to.eql(expectedLocation);
-      });
-  });
+  // it('tests driver etas fetching', () => {
+  //   return service.getDriverEtas(address)
+  //     .then((driverEtas) => {
+  //       expect(driverEtas.location).to.eql(expectedLocation);
+  //     });
+  // });
 
-  it('tests ride estimates fulfillment', () => {
-    return service.getRideEstimates(rideEstimateQuery).should.be.fulfilled;
-  })
+  // it('tests ride estimates fulfillment', () => {
+  //   return service.getRideEstimates(rideEstimateQuery).should.be.fulfilled;
+  // })
 
-  it('tests ride estimates fetching', () => {
-    return service.getRideEstimates(rideEstimateQuery)
-      .then((rideEstimates) => {
-        expect(rideEstimates.start).to.eql(expectedLocation);
-        expect(rideEstimates.end).to.eql(expectedEndLocation);
-      });
-  });
+  // it('tests ride estimates fetching', () => {
+  //   return service.getRideEstimates(rideEstimateQuery)
+  //     .then((rideEstimates) => {
+  //       expect(rideEstimates.start).to.eql(expectedLocation);
+  //       expect(rideEstimates.end).to.eql(expectedEndLocation);
+  //     });
+  // });
 
-  it('tests nearby drivers fulfillment', () => {
-    return service.getNearbyDrivers(address).should.be.fulfilled;
-  })
+  // it('tests nearby drivers fulfillment', () => {
+  //   return service.getNearbyDrivers(address).should.be.fulfilled;
+  // })
 
-  it('tests nearby drivers fetching', () => {
-    return service.getNearbyDrivers(address)
-      .then((nearbyDrivers) => {
-        expect(nearbyDrivers.location).to.eql(expectedLocation);
-      });
-  });
+  // it('tests nearby drivers fetching', () => {
+  //   return service.getNearbyDrivers(address)
+  //     .then((nearbyDrivers) => {
+  //       expect(nearbyDrivers.location).to.eql(expectedLocation);
+  //     });
+  // });
 });

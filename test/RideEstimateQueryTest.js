@@ -10,11 +10,11 @@ chai.use(chaiImmutable);
 
 let expect = chai.expect;
 
-describe('Test Ride Estimate Query', function() {
+describe('Test Ride Estimate Query', () => {
   const startAddress = 'foo';
   const endAddress = 'bar';
 
-  it('Should return ride estimate query', function() {
+  it('Should return ride estimate query', () => {
     const expectedQuery = new RideEstimateQuery({
       startAddress: startAddress,
       endAddress: endAddress,

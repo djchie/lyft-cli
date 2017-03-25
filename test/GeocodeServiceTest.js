@@ -17,7 +17,7 @@ chai.use(chaiImmutable);
 chai.should();
 
 describe('Test Geocode Service', () => {
-  let service = new GeocodeService();
+  // let service = new GeocodeService();
   let address = '52 russ street san francisco ca';
   let coordinate = {
     latitude: 33.792858,
@@ -31,15 +31,15 @@ describe('Test Geocode Service', () => {
     })
   });
 
-  it('tests geocode coordinates data fetching', () => {
-    return service.getGeocodeCoordinatesData(address).should.eventually.eql(geocodeFile);
-  });
+  // it('tests geocode coordinates data fetching', () => {
+  //   return service.getGeocodeCoordinatesData(address).should.eventually.eql(geocodeFile);
+  // });
 
-  it('tests reverse geocode address data fetching', () => {
-    return service.getReverseGeocodeAddressData(coordinate).should.eventually.eql(reverseGeocodeFile);
-  });
+  // it('tests reverse geocode address data fetching', () => {
+  //   return service.getReverseGeocodeAddressData(coordinate).should.eventually.eql(reverseGeocodeFile);
+  // });
 
-  it('tests location fetching', () => {
-    return service.getLocation(address).should.eventually.eql(location);
-  });
+  // it('tests location fetching', () => {
+  //   return service.getLocation(address).should.eventually.eql(location);
+  // });
 });
