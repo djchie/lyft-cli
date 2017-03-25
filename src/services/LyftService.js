@@ -20,13 +20,13 @@ import DriverEtasTranslator from './translators/DriverEtasTranslator';
 import RideEstimates from '../data/RideEstimates';
 import RideEstimatesTranslator from './translators/RideEstimatesTranslator';
 
-dotenv.load();
+const env = dotenv.config({path: __dirname + '/../../.env'});
 
 export default class LyftService {
   constructor() {
     this.lyftApi = new Lyft(
-      process.env.LYFT_CLIENT_ID,
-      process.env.LYFT_CLIENT_SECRET
+      env.LYFT_CLIENT_ID,
+      env.LYFT_CLIENT_SECRET
     );
     this.geocodeService = new GeocodeService();
   }

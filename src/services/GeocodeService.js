@@ -8,12 +8,12 @@ import Coordinate from '../data/Coordinate';
 import GeocodeTranslator from './translators/GeocodeTranslator';
 import CurrentLocationTranslator from './translators/CurrentLocationTranslator';
 
-dotenv.load();
+const env = dotenv.config({path: __dirname + '/../../.env'});
 
 export default class GeocodeService {
   constructor() {
     this.googleMapsClient = GoogleMapsClient.createClient({
-      key: process.env.GOOGLE_GEOCODE_API_KEY,
+      key: env.GOOGLE_GEOCODE_API_KEY,
     });
   }
 

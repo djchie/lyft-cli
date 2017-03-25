@@ -1,6 +1,6 @@
 {
   "name": "lyft-cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "This is a Lyft Command Line Interface",
   "main": "./build/executables/lyft.js",
   "scripts": {
